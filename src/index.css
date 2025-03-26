@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 33% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 240 5% 45%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 220 13% 91%;
+    --secondary-foreground: 222 47% 11.2%;
+
+    --muted: 220 13% 91%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 220 13% 91%;
+    --accent-foreground: 222 47% 11.2%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 210 40% 98%;
+
+    --border: 220 13% 85%;
+    --input: 220 13% 85%;
+    --ring: 222 47% 30%;
+
+    --radius: 0.5rem;
+
+    /* Custom colors for cards */
+    --sales-card-start: 356 100% 77%;
+    --sales-card-end: 341 90% 67%;
+
+    --orders-card-start: 199 100% 72%;
+    --orders-card-end: 210 100% 66%;
+
+    --visitors-card-start: 174 84% 68%;
+    --visitors-card-end: 175 84% 62%;
+    
+    /* Sidebar variables from second file */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 252 56% 57%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --success: 142 69% 29%;
+    --success-foreground: 0 0% 98%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 98%;
+
+    --warning: 35 92% 50%;
+    --warning-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans tracking-tight font-medium;
+  }
+  
+  a {
+    @apply outline-none;
+  }
+  
+  button, input, select, textarea {
+    @apply focus:outline-none focus:ring-accent focus:ring-offset-1 focus:ring-1;
+  }
+  
+  .bg-admin {
+    background-color: #ec4899; /* Pink */
+    color: white;
+  }
+  .bg-seller {
+    background-color: #fbbf24; /* Yellow */
+    color: white;
+  }
+  .bg-buyer {
+    background-color: #3b82f6; /* Blue */
+    color: white;
+  }
+  .bg-active {
+    background-color: #10b981; /* Green */
+    color: white;
+  }
+  .bg-approve {
+    background-color: #10b981; /* Green */
+    color: white;
+  }
+  .bg-pending {
+    background-color: #f97316; /* Orange */
+    color: white;
+  }
+  .bg-rejected {
+    background-color: #ef4444; /* Red */
+    color: white;
+  }
+  .bg-inactive {
+    background-color: #ef4444; /* Red */
+    color: white;
+  }
+  .bg-main {
+    background-color: rgb(68, 50, 8);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-md border border-white/30 shadow-glass rounded-lg;
+  }
+  
+  .nav-link {
+    @apply relative px-2 py-1 text-gallery-text transition-all duration-300 hover:text-gallery-accent after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-gallery-accent after:transition-all after:duration-300 hover:after:w-full;
+  }
+  
+  .art-item-card {
+    @apply relative overflow-hidden rounded-md bg-white p-4 shadow-subtle transition-all duration-300 hover:shadow-glass hover:-translate-y-1;
+  }
+  
+  .chat-message {
+    @apply rounded-lg p-3 max-w-[80%] animate-slide-up;
+  }
+  
+  .chat-message-user {
+    @apply bg-gallery-beige text-gallery-text ml-auto;
+  }
+  
+  .chat-message-other {
+    @apply bg-gallery-bg text-gallery-text border border-gallery-border;
+  }
+  
+  .search-overlay {
+    @apply fixed inset-0 bg-black/10 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+  }
+  
+  .search-container {
+    @apply w-full max-w-2xl bg-white rounded-xl shadow-glass overflow-hidden border border-gallery-border;
+  }
+}
+
+/* Animations */
+@layer utilities {
+  .animate-in {
+    animation: animateIn 0.3s ease-in-out;
+  }
+
+  .slide-in-from-right {
+    animation: slideInFromRight 0.3s ease-in-out;
+  }
+
+  .slide-in-from-left {
+    animation: slideInFromLeft 0.3s ease-in-out;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .scale-in {
+    animation: scaleIn 0.3s ease-in-out;
+  }
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom scrollbar from first file */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--secondary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass {
+  background: rgba(30, 30, 35, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Card gradients */
+.sales-card {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--sales-card-start)),
+    hsl(var(--sales-card-end))
+  );
+  color: white;
+}
+
+.orders-card {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--orders-card-start)),
+    hsl(var(--orders-card-end))
+  );
+  color: white;
+}
+
+.visitors-card {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--visitors-card-start)),
+    hsl(var(--visitors-card-end))
+  );
+  color: white;
+}
+
+/* Page transition */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+[cmdk-dialog] {
+  @apply fixed inset-0 z-50 flex items-start justify-center pt-[20vh] sm:pt-[25vh];
+}
+
+[cmdk-overlay] {
+  @apply fixed inset-0 bg-background/70 backdrop-blur-sm;
+}
+
+[cmdk-root] {
+  @apply w-full max-w-[640px] overflow-hidden rounded-xl border border-gallery-border bg-white shadow-glass;
+}
+
+[cmdk-input] {
+  @apply border-none text-base py-6 outline-none placeholder:text-gallery-text/50 px-6 w-full;
+}
+
+[cmdk-list] {
+  @apply max-h-[300px] overflow-y-auto px-3 pb-3;
+}
+
+[cmdk-item] {
+  @apply text-sm py-3 px-3 rounded-md hover:bg-gallery-beige/20 cursor-pointer flex items-center gap-2;
+}
+
+[cmdk-group-heading] {
+  @apply text-xs font-medium text-gallery-text/50 px-3 py-2;
+}
+
+[cmdk-empty] {
+  @apply text-sm text-gallery-text/50 py-6 text-center;
+}
