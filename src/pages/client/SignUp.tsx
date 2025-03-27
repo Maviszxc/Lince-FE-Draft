@@ -88,15 +88,15 @@ export default function SignUp() {
         <div className="w-full max-w-md">
           <div className="text-center mb-12">
             <Link to="/" className="inline-block">
-              <span className="font-serif text-3xl font-bold tracking-tight bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent">
-                Art<span className="text-black">Auction</span>
+              <span className="font-serif text-3xl font-bold tracking-tight">
+                Art<span className="text-[#AA8F66]">Auction</span>
               </span>
             </Link>
             <div className="mt-10 relative">
-              <h1 className="text-5xl font-bold text-black tracking-wide relative z-10 inline-block">
-                <span className="bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent">SIGN UP</span>
+              <h1 className="text-5xl font-bold tracking-wide relative z-10 inline-block">
+                <span className="text-[#AA8F66]">SIGN UP</span>
               </h1>
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-gray-800 to-black mx-auto w-20 rounded-full"></div>
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-[#AA8F66] mx-auto w-20 rounded-full"></div>
             </div>
           </div>
           
@@ -112,7 +112,7 @@ export default function SignUp() {
                         <Input 
                           placeholder="Username" 
                           {...field} 
-                          className="bg-gray-50 border border-gray-200 text-black placeholder:text-gray-500 h-12 rounded-md focus:ring-2 focus:ring-black"
+                          className="bg-gray-50 border border-gray-200 text-black placeholder:text-gray-500 h-12 rounded-md focus:ring-2 focus:ring-[#AA8F66]"
                         />
                       </FormControl>
                       <FormMessage className="text-red-500" />
@@ -128,7 +128,7 @@ export default function SignUp() {
                         <Input 
                           placeholder="Full Name" 
                           {...field} 
-                          className="bg-gray-50 border border-gray-200 text-black placeholder:text-gray-500 h-12 rounded-md focus:ring-2 focus:ring-black"
+                          className="bg-gray-50 border border-gray-200 text-black placeholder:text-gray-500 h-12 rounded-md focus:ring-2 focus:ring-[#AA8F66]"
                         />
                       </FormControl>
                       <FormMessage className="text-red-500" />
@@ -145,7 +145,7 @@ export default function SignUp() {
                           placeholder="Email Address" 
                           type="email"
                           {...field} 
-                          className="bg-gray-50 border border-gray-200 text-black placeholder:text-gray-500 h-12 rounded-md focus:ring-2 focus:ring-black"
+                          className="bg-gray-50 border border-gray-200 text-black placeholder:text-gray-500 h-12 rounded-md focus:ring-2 focus:ring-[#AA8F66]"
                         />
                       </FormControl>
                       <FormMessage className="text-red-500" />
@@ -162,7 +162,7 @@ export default function SignUp() {
                           type="password" 
                           placeholder="Password" 
                           {...field} 
-                          className="bg-gray-50 border border-gray-200 text-black placeholder:text-gray-500 h-12 rounded-md focus:ring-2 focus:ring-black"
+                          className="bg-gray-50 border border-gray-200 text-black placeholder:text-gray-500 h-12 rounded-md focus:ring-2 focus:ring-[#AA8F66]"
                         />
                       </FormControl>
                       <FormMessage className="text-red-500" />
@@ -179,7 +179,7 @@ export default function SignUp() {
                           type="password" 
                           placeholder="Confirm Password" 
                           {...field} 
-                          className="bg-gray-50 border border-gray-200 text-black placeholder:text-gray-500 h-12 rounded-md focus:ring-2 focus:ring-black"
+                          className="bg-gray-50 border border-gray-200 text-black placeholder:text-gray-500 h-12 rounded-md focus:ring-2 focus:ring-[#AA8F66]"
                         />
                       </FormControl>
                       <FormMessage className="text-red-500" />
@@ -195,12 +195,12 @@ export default function SignUp() {
                         <Checkbox
                           checked={field.value}
                           onCheckedChange={field.onChange}
-                          className="data-[state=checked]:bg-black data-[state=checked]:border-black mt-1"
+                          className="data-[state=checked]:bg-[#AA8F66] data-[state=checked]:border-[#AA8F66] mt-1"
                         />
                       </FormControl>
                       <div className="space-y-1 leading-none">
                         <p className="text-sm text-black">
-                          I agree to the <Link to="/terms" className="text-black font-semibold hover:underline">Terms and conditions</Link>
+                          I agree to the <Link to="/terms" className="text-[#AA8F66] font-semibold hover:text-[#AA8F66]/80 hover:underline">Terms and conditions</Link>
                         </p>
                         <FormMessage className="text-red-500" />
                       </div>
@@ -212,7 +212,7 @@ export default function SignUp() {
               <Button 
                 type="submit" 
                 disabled={isLoading} 
-                className="w-full h-12 bg-gradient-to-r from-gray-800 to-black hover:from-black hover:to-gray-800 text-white font-medium mt-8 rounded-md"
+                className="w-full h-12 bg-[#AA8F66] hover:bg-[#AA8F66]/90 text-white font-medium mt-8 rounded-md"
               >
                 {isLoading ? "Creating Account..." : "Sign up"}
               </Button>
@@ -221,11 +221,11 @@ export default function SignUp() {
           
           <div className="text-center mt-8">
             <p className="text-black text-sm">
-              By registering you agree to the <Link to="/terms" className="text-black font-semibold hover:underline">Terms and conditions</Link>
+              By registering you agree to the <Link to="/terms" className="text-[#AA8F66] font-semibold hover:text-[#AA8F66]/80 hover:underline">Terms and conditions</Link>
             </p>
             <p className="text-black text-sm mt-4">
               Already have an account?{" "}
-              <Link to="/login" className="text-black font-semibold hover:underline">
+              <Link to="/login" className="text-[#AA8F66] font-semibold hover:text-[#AA8F66]/80 hover:underline">
                 Sign in
               </Link>
             </p>

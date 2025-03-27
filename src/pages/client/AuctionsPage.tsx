@@ -96,7 +96,7 @@ const AuctionsPage = () => {
           </p>
           {user && user.role !== "SELLER" && user.role !== "ADMIN" && (
             <div className="mt-6">
-              <Button asChild>
+              <Button asChild className="bg-[#AA8F66] hover:bg-[#AA8F66]/90 text-white">
                 <Link to="/seller-application" className="inline-flex items-center gap-2">
                   <Plus size={20} />
                   Become a Seller
@@ -106,7 +106,7 @@ const AuctionsPage = () => {
           )}
           {user && (user.role === "SELLER" || user.role === "ADMIN") && (
             <div className="mt-6">
-              <Button asChild>
+              <Button asChild className="bg-[#AA8F66] hover:bg-[#AA8F66]/90 text-white">
                 <Link to="/seller/create-auction" className="inline-flex items-center gap-2">
                   <Plus size={20} />
                   Create New Auction

@@ -99,8 +99,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="font-sans text-2xl font-medium text-gallery-text tracking-tight">
-          ArtAuction
+        <Link to="/" className="font-serif text-2xl font-bold tracking-tight">
+          Art<span className="text-[#AA8F66]">Auction</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -154,10 +154,10 @@ const Navbar = () => {
             </DropdownMenu>
           ) : (
             <div className="flex items-center gap-2">
-              <Button variant="ghost" asChild>
+              <Button variant="outline" className="border-[#AA8F66] text-[#AA8F66] hover:bg-[#AA8F66]/10" asChild>
                 <Link to="/login">Log in</Link>
               </Button>
-              <Button className="bg-gradient-to-r from-gray-800 to-black hover:from-black hover:to-gray-800 text-white" asChild>
+              <Button className="bg-[#AA8F66] hover:bg-[#AA8F66]/90 text-white" asChild>
                 <Link to="/signup">Sign up</Link>
               </Button>
             </div>
