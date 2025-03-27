@@ -25,7 +25,7 @@ export default function SellerDashboard() {
               Welcome back, {user?.name}
             </p>
           </div>
-          <Button asChild className="mt-4 md:mt-0">
+          <Button asChild className="mt-4 md:mt-0 bg-[#AA8F66] hover:bg-[#AA8F66]/90 text-white">
             <Link to="/seller/create-auction" className="inline-flex items-center gap-2">
               <Plus size={20} />
               Create New Auction
@@ -86,7 +86,7 @@ export default function SellerDashboard() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button asChild variant="outline" className="w-full">
+              <Button asChild variant="outline" className="w-full border-[#AA8F66] text-[#AA8F66] hover:bg-[#AA8F66]/10">
                 <Link to="/seller/items">View Items</Link>
               </Button>
             </CardContent>
@@ -100,7 +100,7 @@ export default function SellerDashboard() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button asChild variant="outline" className="w-full">
+              <Button asChild variant="outline" className="w-full border-[#AA8F66] text-[#AA8F66] hover:bg-[#AA8F66]/10">
                 <Link to="/seller/auctions">View Auctions</Link>
               </Button>
             </CardContent>
