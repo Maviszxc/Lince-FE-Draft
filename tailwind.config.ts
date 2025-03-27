@@ -76,11 +76,11 @@ export default {
         },
         gallery: {
           bg: "#FFFFFF",
-          beige: "#F2F0E6",
-          cream: "#E8E4D5",
-          accent: "#94A3B8",
-          text: "#1A1A1A",
-          border: "#E2E8F0",
+          beige: "#AA8F66",
+          cream: "#5A3A31",
+          accent: "#5A3A31",
+          text: "#110407",
+          border: "#AA8F66",
         },
       },
       borderRadius: {

@@ -153,10 +153,10 @@ const Sidebar = ({ collapsed, setCollapsed }: SidebarProps) => {
           <ul className="space-y-2">
             <li>
               <Link
-                to="/settings"
+                to="/profile"
                 className={cn(
                   "flex items-center p-3 text-base font-normal rounded-lg transition-colors",
-                  isActive("/settings")
+                  isActive("/profile")
                     ? "bg-primary text-white"
                     : "hover:bg-muted text-foreground"
                 )}

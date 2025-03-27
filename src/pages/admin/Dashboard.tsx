@@ -1,4 +1,3 @@
-
 import { ShoppingCart, DollarSign, Users } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ActivityChart } from '@/components/Charts/ActivityChart';
@@ -81,7 +80,7 @@ const Dashboard = () => {
           </Card>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8">
           <Card className="shadow-soft">
             <CardHeader className="pb-2">
               <CardTitle>Recent Users</CardTitle>
@@ -132,46 +131,6 @@ const Dashboard = () => {
                   <div className="ml-auto bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">
                     Buyer
                   </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="shadow-soft">
-            <CardHeader className="pb-2">
-              <CardTitle>Recent Items</CardTitle>
-              <CardDescription>Latest auction items</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-5">
-                <div className="flex items-center">
-                  <div className="h-12 w-12 rounded-md bg-cover bg-center" 
-                       style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1524805444758-089113d48a6d)' }} />
-                  <div className="ml-4">
-                    <p className="text-sm font-medium">Vintage Watch</p>
-                    <p className="text-xs text-muted-foreground">Starting Bid: $1,000</p>
-                  </div>
-                  <div className="ml-auto text-sm font-medium">$1,750</div>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="h-12 w-12 rounded-md bg-cover bg-center" 
-                       style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1579783900882-c0d3dad7b119)' }} />
-                  <div className="ml-4">
-                    <p className="text-sm font-medium">Oil Painting</p>
-                    <p className="text-xs text-muted-foreground">Starting Bid: $3,000</p>
-                  </div>
-                  <div className="ml-auto text-sm font-medium">$3,200</div>
-                </div>
-                
-                <div className="flex items-center">
-                  <div className="h-12 w-12 rounded-md bg-cover bg-center" 
-                       style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1533559662856-75d61c18f8da)' }} />
-                  <div className="ml-4">
-                    <p className="text-sm font-medium">Vintage Car</p>
-                    <p className="text-xs text-muted-foreground">Starting Bid: $70,000</p>
-                  </div>
-                  <div className="ml-auto text-sm font-medium">$72,500</div>
                 </div>
               </div>
             </CardContent>

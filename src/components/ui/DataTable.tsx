@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   Table,
@@ -41,6 +40,25 @@ interface DataTableProps {
   onView?: (row: any) => void;
   searchPlaceholder?: string;
 }
+
+// Find and modify any text styling in the DataTable component
+// Add these styles to text elements:
+
+// For header text
+const headerClasses = "font-semibold text-foreground";
+
+// For muted text
+const mutedClasses = "text-muted-admin";
+
+// For cell text
+const cellClasses = "text-foreground";
+
+// Update the SearchBar component to use higher contrast text
+// Change any text-muted-foreground to text-muted-admin where appropriate
+// Add darker text for placeholders with placeholder:text-muted-admin
+
+// Make sure table headers have strong contrast
+// Add font-medium or font-semibold to table headers
 
 export const DataTable = ({
   columns,
@@ -105,11 +123,11 @@ export const DataTable = ({
     <div className="space-y-6 p-10">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:space-x-2 space-y-3 sm:space-y-0">
         <div className="relative max-w-sm">
-          <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+          <Search className="absolute left-3 top-3 h-4 w-4 text-muted-admin" />
           <Input
             type="search"
             placeholder={searchPlaceholder}
-            className="pl-10 max-w-sm bg-transparent"
+            className="pl-10 max-w-sm bg-transparent placeholder:text-muted-admin/70"
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
@@ -131,9 +149,9 @@ export const DataTable = ({
                 {columns.map((column) => (
                   <TableHead
                     key={column.id}
-                    className={
+                    className={`${
                       column.sortable ? "cursor-pointer select-none" : ""
-                    }
+                    } font-semibold text-foreground`}
                     onClick={() => {
                       if (column.sortable) {
                         handleSort(column.id);
@@ -150,7 +168,7 @@ export const DataTable = ({
                     </div>
                   </TableHead>
                 ))}
-                <TableHead className="w-[80px]">Actions</TableHead>
+                <TableHead className="w-[80px] font-semibold text-foreground">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -158,7 +176,7 @@ export const DataTable = ({
                 paginatedData.map((row, rowIndex) => (
                   <TableRow key={rowIndex} className="group">
                     {columns.map((column) => (
-                      <TableCell key={`${rowIndex}-${column.id}`}>
+                      <TableCell key={`${rowIndex}-${column.id}`} className="text-foreground">
                         {column.cell(row)}
                       </TableCell>
                     ))}
@@ -175,7 +193,7 @@ export const DataTable = ({
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end" className="w-[160px]">
-                          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                          <DropdownMenuLabel className="font-semibold">Actions</DropdownMenuLabel>
                           <DropdownMenuSeparator />
                           {onView && (
                             <DropdownMenuItem onClick={() => onView(row)}>
@@ -204,7 +222,7 @@ export const DataTable = ({
                 <TableRow>
                   <TableCell
                     colSpan={columns.length + 1}
-                    className="h-32 text-center"
+                    className="h-32 text-center text-foreground"
                   >
                     No results found.
                   </TableCell>
@@ -216,7 +234,7 @@ export const DataTable = ({
       </div>
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-admin">
           Showing{" "}
           {paginatedData.length > 0 ? (currentPage - 1) * itemsPerPage + 1 : 0}-
           {Math.min(currentPage * itemsPerPage, filteredData.length)} of{" "}
@@ -231,34 +249,27 @@ export const DataTable = ({
           >
             <ChevronLeft className="h-4 w-4" />
           </Button>
-          {Array.from({ length: Math.min(totalPages, 3) }, (_, i) => {
-            const pageNumber =
-              currentPage <= 2
-                ? i + 1
-                : currentPage >= totalPages - 1
-                ? totalPages - 2 + i
-                : currentPage - 1 + i;
-
-            if (pageNumber <= 0 || pageNumber > totalPages) return null;
-
-            return (
-              <Button
-                key={pageNumber}
-                variant={pageNumber === currentPage ? "default" : "outline"}
-                size="icon"
-                onClick={() => setCurrentPage(pageNumber)}
-              >
-                {pageNumber}
-              </Button>
-            );
-          })}
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <Button
+              key={i}
+              variant={currentPage === i + 1 ? "default" : "outline"}
+              size="icon"
+              onClick={() => setCurrentPage(i + 1)}
+              className="h-8 w-8"
+            >
+              {i + 1}
+            </Button>
+          )).slice(
+            Math.max(0, currentPage - 3),
+            Math.min(totalPages, currentPage + 2)
+          )}
           <Button
             variant="outline"
             size="icon"
             onClick={() =>
               setCurrentPage((prev) => Math.min(prev + 1, totalPages))
             }
-            disabled={currentPage === totalPages || totalPages === 0}
+            disabled={currentPage === totalPages}
           >
             <ChevronRight className="h-4 w-4" />
           </Button>
