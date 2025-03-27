@@ -148,7 +148,7 @@ export default function Profile() {
           <div className="text-center">
             <h1 className="text-2xl font-bold mb-4">Not Logged In</h1>
             <p className="mb-4">Please log in to view your profile</p>
-            <Button asChild>
+            <Button className="bg-[#AA8F66] hover:bg-[#AA8F66]/90 text-white" asChild>
               <a href="/login">Log In</a>
             </Button>
           </div>
@@ -165,13 +165,13 @@ export default function Profile() {
           
           <div className="flex mt-4 md:mt-0 space-x-4">
             <AdminOnly>
-              <Button variant="outline" asChild>
+              <Button variant="outline" className="border-[#AA8F66] text-[#AA8F66] hover:bg-[#AA8F66]/10" asChild>
                 <a href="/admindashboard">Admin Dashboard</a>
               </Button>
             </AdminOnly>
             
             <SellerOnly>
-              <Button variant="outline" asChild>
+              <Button variant="outline" className="border-[#AA8F66] text-[#AA8F66] hover:bg-[#AA8F66]/10" asChild>
                 <a href="/seller/dashboard">Seller Dashboard</a>
               </Button>
             </SellerOnly>
@@ -197,7 +197,7 @@ export default function Profile() {
                     {user.name || user.username}
                   </h2>
                   <p className="text-sm text-gray-500 mt-1">{user.email}</p>
-                  <div className="mt-2 px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                  <div className="mt-2 px-2 py-1 bg-[#AA8F66]/20 text-[#AA8F66] rounded-full text-xs font-medium">
                     {user.role}
                   </div>
                 </div>
@@ -207,7 +207,7 @@ export default function Profile() {
                     <button
                       onClick={() => setActiveTab("account")}
                       className={`w-full flex items-center px-3 py-2 text-sm rounded-md ${
-                        activeTab === "account" ? "bg-blue-100 text-blue-700" : "text-gray-700 hover:bg-gray-100"
+                        activeTab === "account" ? "bg-[#AA8F66]/20 text-[#AA8F66]" : "text-gray-700 hover:bg-gray-100"
                       }`}
                     >
                       Account Information
@@ -215,7 +215,7 @@ export default function Profile() {
                     <button
                       onClick={() => setActiveTab("settings")}
                       className={`w-full flex items-center px-3 py-2 text-sm rounded-md ${
-                        activeTab === "settings" ? "bg-blue-100 text-blue-700" : "text-gray-700 hover:bg-gray-100"
+                        activeTab === "settings" ? "bg-[#AA8F66]/20 text-[#AA8F66]" : "text-gray-700 hover:bg-gray-100"
                       }`}
                     >
                       Settings
@@ -223,7 +223,7 @@ export default function Profile() {
                     <button
                       onClick={() => setActiveTab("security")}
                       className={`w-full flex items-center px-3 py-2 text-sm rounded-md ${
-                        activeTab === "security" ? "bg-blue-100 text-blue-700" : "text-gray-700 hover:bg-gray-100"
+                        activeTab === "security" ? "bg-[#AA8F66]/20 text-[#AA8F66]" : "text-gray-700 hover:bg-gray-100"
                       }`}
                     >
                       Security
@@ -231,7 +231,7 @@ export default function Profile() {
                     <button
                       onClick={() => setActiveTab("danger")}
                       className={`w-full flex items-center px-3 py-2 text-sm rounded-md ${
-                        activeTab === "danger" ? "bg-blue-100 text-blue-700" : "text-gray-700 hover:bg-gray-100"
+                        activeTab === "danger" ? "bg-[#AA8F66]/20 text-[#AA8F66]" : "text-gray-700 hover:bg-gray-100"
                       }`}
                     >
                       Danger Zone
@@ -369,7 +369,7 @@ export default function Profile() {
                       </div>
                     </div>
                     <div className="mt-6">
-                      <Button type="submit" disabled={isLoading}>
+                      <Button className="bg-[#AA8F66] hover:bg-[#AA8F66]/90 text-white" type="submit" disabled={isLoading}>
                         {isLoading ? "Updating..." : "Update Profile"}
                       </Button>
                     </div>
@@ -454,7 +454,7 @@ export default function Profile() {
                       </div>
                     </div>
                     <div className="mt-6">
-                      <Button type="submit" disabled={isLoading}>
+                      <Button className="bg-[#AA8F66] hover:bg-[#AA8F66]/90 text-white" type="submit" disabled={isLoading}>
                         {isLoading ? "Saving..." : "Save Settings"}
                       </Button>
                     </div>
@@ -506,7 +506,7 @@ export default function Profile() {
                       </div>
                     </div>
                     <div className="mt-6">
-                      <Button type="submit" disabled={isLoading}>
+                      <Button className="bg-[#AA8F66] hover:bg-[#AA8F66]/90 text-white" type="submit" disabled={isLoading}>
                         {isLoading ? "Updating..." : "Change Password"}
                       </Button>
                     </div>
