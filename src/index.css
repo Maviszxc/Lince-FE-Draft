@@ -137,40 +137,39 @@
   }
   
   .bg-admin {
-    background-color: #5A3A31; /* Brown */
+    background-color: #ec4899; /* Pink */
     color: white;
   }
   .bg-seller {
-    background-color: #AA8F66; /* Tan */
+    background-color: #fbbf24; /* Yellow */
     color: white;
   }
   .bg-buyer {
-    background-color: #AA8F66; /* Tan */
+    background-color: #3b82f6; /* Blue */
     color: white;
   }
   .bg-active {
-    background-color: #AA8F66; /* Tan */
+    background-color: #10b981; /* Green */
     color: white;
   }
   .bg-approve {
-    background-color: #AA8F66; /* Tan */
+    background-color: #10b981; /* Green */
     color: white;
   }
   .bg-pending {
-    background-color: #5A3A31; /* Brown */
+    background-color: #f97316; /* Orange */
     color: white;
   }
   .bg-rejected {
-    background-color: #110407; /* Dark Brown */
+    background-color: #ef4444; /* Red */
     color: white;
   }
   .bg-inactive {
-    background-color: #110407; /* Dark Brown */
+    background-color: #ef4444; /* Red */
     color: white;
   }
   .bg-main {
-    background-color: #110407; /* Dark Brown */
-    color: white;
+    background-color: rgb(68, 50, 8);
   }
 }
 

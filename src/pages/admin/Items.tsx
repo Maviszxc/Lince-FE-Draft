@@ -240,7 +240,10 @@ const Items = () => {
           <h1 className="text-2xl font-bold tracking-tight">Items</h1>
           <p className="text-muted-foreground">Manage auction items</p>
         </div>
-        <Button onClick={handleAddItem} className="gap-1">
+        <Button 
+          onClick={handleAddItem} 
+          className="gap-1 bg-[#AA8F66] hover:bg-[#AA8F66]/90 text-white"
+        >
           <PackagePlus className="h-4 w-4" />
           Add Item
         </Button>
@@ -466,7 +469,6 @@ const Items = () => {
                             <SelectItem value="pending">Pending</SelectItem>
                             <SelectItem value="approved">Approved</SelectItem>
                             <SelectItem value="rejected">Rejected</SelectItem>
-                            <SelectItem value="sold">Sold</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />

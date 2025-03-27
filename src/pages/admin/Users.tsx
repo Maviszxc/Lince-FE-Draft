@@ -211,10 +211,6 @@ const Users = () => {
             Manage users and their permissions
           </p>
         </div>
-        <Button onClick={handleAddUser} className="gap-1">
-          <UserPlus className="h-4 w-4 " />
-          Add User
-        </Button>
       </div>
 
       <Card className="shadow-soft">
