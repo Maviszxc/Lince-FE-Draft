@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface User {
   id: string;
@@ -49,32 +50,39 @@ const TEST_USERS = [
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    // Check if user is logged in from localStorage
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-    setLoading(false);
-  }, []);
+    const initializeAuth = () => {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        const parsedUser = JSON.parse(storedUser);
+        setUser(parsedUser);
+        
+        // If user is admin and trying to access non-admin routes, redirect to admin dashboard
+        if (parsedUser.role === 'ADMIN' && !location.pathname.startsWith('/admin')) {
+          navigate('/admin/dashboard', { replace: true });
+        }
+      }
+      setLoading(false);
+    };
+
+    initializeAuth();
+  }, [location.pathname]);
 
   // Helper functions for role checking
   const isAdmin = () => user?.role === 'ADMIN';
   const isSeller = () => user?.role === 'SELLER' || user?.role === 'ADMIN';
 
-  // In a real app, these functions would call an API
   const login = async (emailOrUsername: string, password: string): Promise<boolean> => {
-    // Simulate API call
     try {
-      // Check if this is one of our test users
       const testUser = TEST_USERS.find(user => 
         (user.username === emailOrUsername || user.email === emailOrUsername) && 
         user.password === password
       );
       
       if (testUser) {
-        // Login with the test user
         const userData: User = {
           id: `user-${testUser.username}`,
           username: testUser.username,
@@ -85,9 +93,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         };
         setUser(userData);
         localStorage.setItem("user", JSON.stringify(userData));
+        
+        // Redirect admin users to admin dashboard after login
+        if (testUser.role === 'ADMIN') {
+          navigate('/admin/dashboard', { replace: true });
+        }
         return true;
       } else if (emailOrUsername && password) {
-        // For non-test users, simulate a successful login as customer
         const userData: User = {
           id: "user-" + Math.random().toString(36).substring(2, 9),
           username: emailOrUsername.includes('@') ? emailOrUsername.split('@')[0] : emailOrUsername,
@@ -107,14 +119,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signup = async (username: string, email: string, password: string, name?: string): Promise<boolean> => {
-    // Simulate API call
     try {
-      // For demo purposes, just check if all fields are provided
       if (username && email && password) {
-        // In a real app, you would send this data to your API
-        // and then log the user in
-        
-        // For demo, we'll just simulate a successful signup
         const userData: User = {
           id: "user-" + Math.random().toString(36).substring(2, 9),
           username,
@@ -137,6 +143,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
+    navigate('/login', { replace: true });
   };
 
   return (

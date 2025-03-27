@@ -1,4 +1,3 @@
-
 export interface User {
   id: string;
   name: string;
@@ -43,28 +42,6 @@ export interface AuctionItem extends Item {
   auctionEnd?: Date;
 }
 
-export interface DashboardStats {
-  totalSales: number;
-  salesGrowth: number;
-  totalOrders: number;
-  ordersGrowth: number;
-  activeUsers: number;
-  usersGrowth: number;
-}
-
 export interface ChartData {
   [key: string]: number | string;
-}
-
-export interface ActivityData {
-  date: string;
-  sales: number;
-  orders: number;
-  visitors: number;
-}
-
-export interface TrafficSource {
-  name: string;
-  value: number;
-  color: string;
 }

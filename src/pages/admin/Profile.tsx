@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "@/lib/auth-context";
-import ClientLayout from "@/components/ClientLayout";
+import MainLayout from "@/components/Layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,10 +11,8 @@ import { Switch } from "@/components/ui/switch";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { toast } from "sonner";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
-import { AdminOnly, SellerOnly } from "@/components/RoleBasedContent";
-import { Link } from "react-router-dom";
 
-export default function Profile() {
+export default function AdminProfile() {
   const { user, logout } = useAuth();
   const [activeTab, setActiveTab] = useState("account");
   const [isLoading, setIsLoading] = useState(false);
@@ -144,7 +142,7 @@ export default function Profile() {
   
   if (!user) {
     return (
-      <ClientLayout>
+      <MainLayout>
         <div className="container py-8">
           <div className="text-center">
             <h1 className="text-2xl font-bold mb-4">Not Logged In</h1>
@@ -154,29 +152,17 @@ export default function Profile() {
             </Button>
           </div>
         </div>
-      </ClientLayout>
+      </MainLayout>
     );
   }
   
   return (
-    <ClientLayout>
+    <MainLayout>
       <div className="container py-8">
         <div className="flex flex-col md:flex-row justify-between mb-6 items-start md:items-center">
           <h1 className="text-2xl font-bold">My Profile</h1>
           
           <div className="flex mt-4 md:mt-0 space-x-4">
-            <AdminOnly>
-              <Button variant="outline" className="border-[#AA8F66] text-[#AA8F66] hover:bg-[#AA8F66]/10" asChild>
-                <Link to="/admin/dashboard">Admin Dashboard</Link>
-              </Button>
-            </AdminOnly>
-            
-            <SellerOnly>
-              <Button variant="outline" className="border-[#AA8F66] text-[#AA8F66] hover:bg-[#AA8F66]/10" asChild>
-                <a href="/seller/dashboard">Seller Dashboard</a>
-              </Button>
-            </SellerOnly>
-            
             <Button variant="destructive" onClick={handleLogout}>
               Logout
             </Button>
@@ -562,6 +548,6 @@ export default function Profile() {
           </div>
         </div>
       </div>
-    </ClientLayout>
+    </MainLayout>
   );
-}
+} 

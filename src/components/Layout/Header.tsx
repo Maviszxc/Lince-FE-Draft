@@ -1,6 +1,5 @@
-import { Bell, Search, Sun, Moon } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/lib/auth-context';
@@ -33,27 +32,8 @@ const Header = ({ sidebarCollapsed }: HeaderProps) => {
   
   return (
     <header className={`h-16 fixed top-0 right-0 z-30 bg-background border-b border-border transition-all duration-300 ${sidebarCollapsed ? 'left-20' : 'left-64'}`}>
-      <div className="h-full flex items-center justify-between px-6">
-        <div className="relative w-96 max-w-md">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search className="h-4 w-4 text-muted-foreground" />
-          </div>
-          <Input
-            type="search"
-            placeholder="Search..."
-            className="pl-10 bg-muted border-none h-9"
-          />
-        </div>
-        
+      <div className="h-full flex items-center justify-end px-6">
         <div className="flex items-center space-x-3">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="text-muted-foreground hover:text-foreground"
-          >
-            <Bell size={20} />
-          </Button>
-          
           <Button 
             variant="ghost" 
             size="icon"
@@ -82,7 +62,7 @@ const Header = ({ sidebarCollapsed }: HeaderProps) => {
             <DropdownMenuContent align="end">
               <DropdownMenuItem className="font-medium">{user?.name || 'Admin User'}</DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/profile">Profile</Link>
+                <Link to={user?.role === 'ADMIN' ? "/admin/profile" : "/profile"}>Profile</Link>
               </DropdownMenuItem>
               <DropdownMenuItem onClick={handleLogout}>
                 Logout

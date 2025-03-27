@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -19,17 +18,17 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const getPageTitle = () => {
     const path = location.pathname;
     switch (path) {
-      case '/dashboard':
+      case '/admin/dashboard':
         return 'Dashboard';
-      case '/users':
+      case '/admin/users':
         return 'Users Management';
-      case '/items':
+      case '/admin/items':
         return 'Items Management';
-      case '/seller-applications':
+      case '/admin/seller-applications':
         return 'Seller Applications';
-      case '/auction-approvals':
+      case '/admin/auction-approvals':
         return 'Auction Approvals';
-      case '/settings':
+      case '/admin/settings':
         return 'Settings';
       default:
         return 'Dashboard';

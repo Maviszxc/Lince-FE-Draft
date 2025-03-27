@@ -9,9 +9,9 @@ import {
   Gavel, 
   ChevronLeft,
   ChevronRight,
-  Settings, 
   Bell,
-  LogOut
+  LogOut,
+  User
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from "@/lib/auth-context";
@@ -23,7 +23,7 @@ interface SidebarProps {
 
 const Sidebar = ({ collapsed, setCollapsed }: SidebarProps) => {
   const location = useLocation();
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
   
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -79,10 +79,10 @@ const Sidebar = ({ collapsed, setCollapsed }: SidebarProps) => {
         <ul className="space-y-2">
           <li>
             <Link
-              to="/admindashboard"
+              to="/admin/dashboard"
               className={cn(
                 "flex items-center p-3 text-base font-normal rounded-lg transition-colors",
-                isActive("/admindashboard")
+                isActive("/admin/dashboard")
                   ? "bg-primary text-white"
                   : "hover:bg-muted text-foreground"
               )}
@@ -93,10 +93,10 @@ const Sidebar = ({ collapsed, setCollapsed }: SidebarProps) => {
           </li>
           <li>
             <Link
-              to="/users"
+              to="/admin/users"
               className={cn(
                 "flex items-center p-3 text-base font-normal rounded-lg transition-colors",
-                isActive("/users")
+                isActive("/admin/users")
                   ? "bg-primary text-white"
                   : "hover:bg-muted text-foreground"
               )}
@@ -107,10 +107,10 @@ const Sidebar = ({ collapsed, setCollapsed }: SidebarProps) => {
           </li>
           <li>
             <Link
-              to="/items"
+              to="/admin/items"
               className={cn(
                 "flex items-center p-3 text-base font-normal rounded-lg transition-colors",
-                isActive("/items")
+                isActive("/admin/items")
                   ? "bg-primary text-white"
                   : "hover:bg-muted text-foreground"
               )}
@@ -121,10 +121,10 @@ const Sidebar = ({ collapsed, setCollapsed }: SidebarProps) => {
           </li>
           <li>
             <Link
-              to="/seller-applications"
+              to="/admin/seller-applications"
               className={cn(
                 "flex items-center p-3 text-base font-normal rounded-lg transition-colors",
-                isActive("/seller-applications")
+                isActive("/admin/seller-applications")
                   ? "bg-primary text-white"
                   : "hover:bg-muted text-foreground"
               )}
@@ -135,10 +135,10 @@ const Sidebar = ({ collapsed, setCollapsed }: SidebarProps) => {
           </li>
           <li>
             <Link
-              to="/auction-approvals"
+              to="/admin/auction-approvals"
               className={cn(
                 "flex items-center p-3 text-base font-normal rounded-lg transition-colors",
-                isActive("/auction-approvals")
+                isActive("/admin/auction-approvals")
                   ? "bg-primary text-white"
                   : "hover:bg-muted text-foreground"
               )}
@@ -153,16 +153,16 @@ const Sidebar = ({ collapsed, setCollapsed }: SidebarProps) => {
           <ul className="space-y-2">
             <li>
               <Link
-                to="/profile"
+                to={user?.role === 'ADMIN' ? "/admin/profile" : "/profile"}
                 className={cn(
                   "flex items-center p-3 text-base font-normal rounded-lg transition-colors",
-                  isActive("/profile")
+                  isActive(user?.role === 'ADMIN' ? "/admin/profile" : "/profile")
                     ? "bg-primary text-white"
                     : "hover:bg-muted text-foreground"
                 )}
               >
-                <Settings size={20} />
-                {!collapsed && <span className="ml-3">Settings</span>}
+                <User size={20} />
+                {!collapsed && <span className="ml-3">Profile</span>}
               </Link>
             </li>
           </ul>

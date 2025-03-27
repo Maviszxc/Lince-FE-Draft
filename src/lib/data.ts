@@ -1,34 +1,4 @@
-
-import { ActivityData, AuctionItem, DashboardStats, Item, SellerApplication, TrafficSource, User } from './types';
-
-// Dashboard Statistics
-export const dashboardStats: DashboardStats = {
-  totalSales: 145000,
-  salesGrowth: 10.5,
-  totalOrders: 45634,
-  ordersGrowth: -7.3,
-  activeUsers: 95741,
-  usersGrowth: 5.2,
-};
-
-// Activity Chart Data
-export const activityData: ActivityData[] = [
-  { date: 'Jan', sales: 65, orders: 40, visitors: 80 },
-  { date: 'Feb', sales: 59, orders: 55, visitors: 60 },
-  { date: 'Mar', sales: 80, orders: 40, visitors: 70 },
-  { date: 'Apr', sales: 81, orders: 65, visitors: 85 },
-  { date: 'May', sales: 56, orders: 59, visitors: 45 },
-  { date: 'Jun', sales: 55, orders: 58, visitors: 43 },
-  { date: 'Jul', sales: 40, orders: 45, visitors: 50 },
-  { date: 'Aug', sales: 65, orders: 70, visitors: 75 },
-];
-
-// Traffic Sources Data
-export const trafficSources: TrafficSource[] = [
-  { name: 'Search Engines', value: 30, color: '#8884d8' },
-  { name: 'Direct Click', value: 30, color: '#00C49F' },
-  { name: 'Bookmarks/Click', value: 40, color: '#FF8042' },
-];
+import { AuctionItem, Item, SellerApplication, User } from './types';
 
 // Mock Users Data
 export const users: User[] = [
