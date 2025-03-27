@@ -26,6 +26,7 @@ import ResetPassword from "./pages/client/ResetPassword";
 import SellerApplication from "./pages/client/SellerApplication";
 import SellerDashboard from "./pages/seller/Dashboard";
 import AdminProfile from "./pages/admin/Profile";
+import FAQSs from "./pages/client/FAQsPage";
 
 // Create a client with default options for React Query
 const queryClient = new QueryClient({
@@ -46,36 +47,54 @@ const AppRoutes = () => {
     return (
       <Routes>
         {/* Admin Routes */}
-        <Route path="/admin/dashboard" element={
-          <ProtectedRoute>
-            <AdminDashboard />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/users" element={
-          <ProtectedRoute>
-            <Users />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/items" element={
-          <ProtectedRoute>
-            <Items />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/seller-applications" element={
-          <ProtectedRoute>
-            <SellerApplications />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/auction-approvals" element={
-          <ProtectedRoute>
-            <AuctionApprovals />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/profile" element={
-          <ProtectedRoute>
-            <AdminProfile />
-          </ProtectedRoute>
-        } />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <ProtectedRoute>
+              <Users />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/items"
+          element={
+            <ProtectedRoute>
+              <Items />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/seller-applications"
+          element={
+            <ProtectedRoute>
+              <SellerApplications />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/auction-approvals"
+          element={
+            <ProtectedRoute>
+              <AuctionApprovals />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/profile"
+          element={
+            <ProtectedRoute>
+              <AdminProfile />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Auth Routes */}
         <Route path="/login" element={<Login />} />
@@ -103,26 +122,36 @@ const AppRoutes = () => {
       <Route path="/artists" element={<ArtistsPage />} />
       <Route path="/artist/:id" element={<ArtistDetailPage />} />
       <Route path="/about" element={<AboutPage />} />
-      
+      <Route path="/faqs" element={<FAQSs />} />
+
       {/* Protected Routes */}
-      <Route path="/profile" element={
-        <ProtectedRoute>
-          <Profile />
-        </ProtectedRoute>
-      } />
-      <Route path="/seller-application" element={
-        <ProtectedRoute>
-          <SellerApplication />
-        </ProtectedRoute>
-      } />
-      
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/seller-application"
+        element={
+          <ProtectedRoute>
+            <SellerApplication />
+          </ProtectedRoute>
+        }
+      />
+
       {/* Seller Routes */}
-      <Route path="/seller/dashboard" element={
-        <ProtectedRoute>
-          <SellerDashboard />
-        </ProtectedRoute>
-      } />
-      
+      <Route
+        path="/seller/dashboard"
+        element={
+          <ProtectedRoute>
+            <SellerDashboard />
+          </ProtectedRoute>
+        }
+      />
+
       {/* Not Found */}
       <Route path="*" element={<NotFound />} />
     </Routes>

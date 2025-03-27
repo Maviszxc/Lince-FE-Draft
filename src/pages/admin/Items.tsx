@@ -239,14 +239,7 @@ const Items = () => {
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Items</h1>
           <p className="text-muted-foreground">Manage auction items</p>
-        </div>
-        <Button 
-          onClick={handleAddItem} 
-          className="gap-1 bg-[#AA8F66] hover:bg-[#AA8F66]/90 text-white"
-        >
-          <PackagePlus className="h-4 w-4" />
-          Add Item
-        </Button>
+        </div>   
       </div>
 
       <Card className="shadow-soft">
